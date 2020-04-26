@@ -6,6 +6,7 @@
 package ViewProcess;
 
 import InfoSystem.InfoCPU;
+import InfoSystem.InfoDisco;
 import InfoSystem.InfoRAM;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -15,8 +16,9 @@ import java.util.TimerTask;
  * @author guita
  */
 public class JfTarefas extends javax.swing.JFrame {
-private  InfoCPU cpu = new InfoCPU();
+    private  InfoCPU cpu = new InfoCPU();
     private InfoRAM  ram = new InfoRAM();
+    private InfoDisco disco = new InfoDisco();
     
     
     
@@ -40,6 +42,7 @@ private  InfoCPU cpu = new InfoCPU();
                 
                 porcentagemRAM();
                 porcentagemCPU();
+                discoLivre();
             }
         
         };
@@ -59,6 +62,12 @@ private  InfoCPU cpu = new InfoCPU();
         lbl_CPU.setText(String.format("%.1f%%", cpuPorcentagem));
     }  
     
+    private void discoLivre()
+    {
+        String capturaDisco = disco.getDiscoDisponivel();
+        lbl_DISCO.setText(capturaDisco);
+    }
+    
     
 
     /**
@@ -74,10 +83,13 @@ private  InfoCPU cpu = new InfoCPU();
         jTextField3 = new javax.swing.JTextField();
         lbl_RAM = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
+        lbl_DISCO = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbl_CPU.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        lbl_CPU.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_CPU.setText("0%");
 
         jTextField3.setEditable(false);
@@ -86,12 +98,22 @@ private  InfoCPU cpu = new InfoCPU();
         jTextField3.setText("CPU");
 
         lbl_RAM.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        lbl_RAM.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_RAM.setText("0%");
 
         jTextField4.setEditable(false);
         jTextField4.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 12)); // NOI18N
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField4.setText("Memória");
+
+        lbl_DISCO.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        lbl_DISCO.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_DISCO.setText("GB");
+
+        jTextField6.setEditable(false);
+        jTextField6.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 12)); // NOI18N
+        jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField6.setText("Disco");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,19 +128,29 @@ private  InfoCPU cpu = new InfoCPU();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField4)
                     .addComponent(lbl_RAM, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_DISCO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_CPU)
-                    .addComponent(lbl_RAM))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbl_DISCO)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_CPU)
+                            .addComponent(lbl_RAM))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(193, Short.MAX_VALUE))
         );
 
@@ -163,7 +195,9 @@ private  InfoCPU cpu = new InfoCPU();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lbl_CPU;
+    private javax.swing.JLabel lbl_DISCO;
     private javax.swing.JLabel lbl_RAM;
     // End of variables declaration//GEN-END:variables
 }

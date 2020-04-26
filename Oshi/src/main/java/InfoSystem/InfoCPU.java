@@ -13,7 +13,7 @@ import oshi.hardware.CentralProcessor;
  * @author guita
  */
 public class InfoCPU {
-          private CentralProcessor cpuInfo;
+        private CentralProcessor cpuInfo;
         private long oldTicks[];
     
     public InfoCPU() 
