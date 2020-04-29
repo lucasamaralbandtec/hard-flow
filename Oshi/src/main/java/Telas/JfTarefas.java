@@ -1,20 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Telas;
-
 import CapturarDados.InfoCPU;
 import CapturarDados.InfoDisco;
 import CapturarDados.InfoRAM;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- *
- * @author guita
- */
 public class JfTarefas extends javax.swing.JFrame {
     private  InfoCPU cpu = new InfoCPU();
     private InfoRAM  ram = new InfoRAM();
@@ -64,8 +54,7 @@ public class JfTarefas extends javax.swing.JFrame {
     
     private void discoLivre()
     {
-        String capturaDisco = disco.getDiscoDisponivel();
-        lbl_DISCO.setText(capturaDisco);
+        lbl_DISCO.setText(String.format("%d", disco.getPorcentagemDisco()));
     }
     
     
