@@ -69,8 +69,9 @@ public class RecuperacaoSenha extends javax.swing.JFrame {
 
         lblEmail5.setBackground(new java.awt.Color(0, 0, 0));
         lblEmail5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        lblEmail5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmail5.setText("x");
-        lblEmail5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblEmail5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblEmail5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblEmail5MouseClicked(evt);

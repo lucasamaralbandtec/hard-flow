@@ -85,6 +85,7 @@ public class Login extends javax.swing.JFrame {
 
         lblEmail4.setBackground(new java.awt.Color(0, 0, 0));
         lblEmail4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        lblEmail4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmail4.setText("x");
         lblEmail4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblEmail4.addMouseListener(new java.awt.event.MouseAdapter() {
